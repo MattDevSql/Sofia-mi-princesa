@@ -216,18 +216,18 @@
         }
     </style>
 
-    <section id="sec-1" style="background-image: url('../Imagenes/fondo-arrugado-corazones.jpg');">
-        <img src="../Imagenes/snoopy-with-heart.png" class="snoopy-vuelo" onclick="avanzar('sec-2')">
+    <section id="sec-1" style="background-image: url('Imagenes/fondo-arrugado-corazones.jpg');">
+        <img src="Imagenes/snoopy-with-heart.png" class="snoopy-vuelo" onclick="avanzar('sec-2')">
         <h2 style="font-family:'Dancing Script'; color:#d14d4d; font-size: 2rem;">Toca a Snoopy...</h2>
     </section>
 
-    <section id="sec-2" style="background-image: url('../Imagenes/gatos-fondo.jpg');">
+    <section id="sec-2" style="background-image: url('Imagenes/gatos-fondo.jpg');">
         <div class="tarjeta-juego" style="background: rgba(0,0,0,0.5);">
             <h2 style="color: white; margin: 0; font-size: 1.5rem;">Llevamos juntos:</h2>
 
             <div id="reloj">Calculando...</div>
 
-            <img src="../Gifs/Cat-kissing.gif" style="width:90px; margin-top:10px; cursor:pointer;"
+            <img src="Gifs/Cat-kissing.gif" style="width:90px; margin-top:10px; cursor:pointer;"
                 onclick="avanzar('sec-besos')">
 
             <div id="frase-meses"
@@ -235,9 +235,9 @@
         </div>
     </section>
 
-    <section id="sec-besos" style="background-image: url('../Imagenes/difuminado-azul.jpg');">
+    <section id="sec-besos" style="background-image: url('Imagenes/difuminado-azul.jpg');">
         <div class="tarjeta-juego">
-            <img src="../Imagenes/please.jpg" class="imagen-redonda">
+            <img src="Imagenes/please.jpg" class="imagen-redonda">
             <h2 class="pregunta">¿Me darás besitos cuando me veas? 🥺</h2>
             <div class="contenedor-botones" id="caja-besos" style="display:flex; gap:20px; transition:0.4s;">
                 <button class="btn btn-si" onclick="avanzar('sec-mano')">Obvio jsjs</button>
@@ -246,7 +246,7 @@
         </div>
     </section>
 
-    <section id="sec-mano" style="background-image: url('../Imagenes/difuminado-azul-blanco.jpg');">
+    <section id="sec-mano" style="background-image: url('Imagenes/difuminado-azul-blanco.jpg');">
         <div class="tarjeta-juego">
             <img src="../Imagenes/dog.jpg" class="imagen-redonda">
             <h2 class="pregunta">¿Me dejarás tomarte la mano?</h2>
@@ -257,20 +257,20 @@
         </div>
     </section>
 
-    <section id="sec-abrazo" style="background-image: url('../Imagenes/blue-flowers.jpg');">
-        <img src="../Gifs/Abrazo.gif" class="imagen-grande">
+    <section id="sec-abrazo" style="background-image: url('Imagenes/blue-flowers.jpg');">
+        <img src="Gifs/Abrazo.gif" class="imagen-grande">
         <h2 class="pregunta">¡Sabía que sí! ❤️</h2>
         <button class="btn btn-si" onclick="avanzar('sec-videl')">Siguiente...</button>
     </section>
 
-    <section id="sec-videl" style="background-image: url('../Imagenes/jean-modelo.jpg');">
+    <section id="sec-videl" style="background-image: url('Imagenes/jean-modelo.jpg');">
         <div class="tarjeta-juego">
             <h2 id="titulo-videl" class="pregunta">Me recuerdas mucho a...</h2>
 
             <div class="mazo-cartas">
-                <div class="carta-videl c1"><img src="../Imagenes/videl.jpg"></div>
-                <div class="carta-videl c2"><img src="../Imagenes/videl-dbz.jpg"></div>
-                <div class="carta-videl c3"><img src="../Imagenes/videl-dbs.jpg"></div>
+                <div class="carta-videl c1"><img src="Imagenes/videl.jpg"></div>
+                <div class="carta-videl c2"><img src="Imagenes/videl-dbz.jpg"></div>
+                <div class="carta-videl c3"><img src="Imagenes/videl-dbs.jpg"></div>
             </div>
 
             <button id="btn-quien" class="btn btn-si" onclick="lanzarCartas()">¿A quién? 🤔</button>
@@ -283,7 +283,7 @@
         </div>
     </section>
 
-    <section id="sec-carta" style="background-image: url('../Imagenes/carta-fondo.jpg');">
+    <section id="sec-carta" style="background-image: url('Imagenes/carta-fondo.jpg');">
         <div class="tarjeta-juego" style="background: rgba(255, 255, 255, 0.85); min-height: 250px; color: #333;">
             <div id="texto-carta" style="font-family:'Dancing Script'; font-size:1.7rem; text-align:left; width: 100%;">
             </div>
@@ -390,5 +390,6 @@
         
     </script>
 </body>
+
 
 </html>
