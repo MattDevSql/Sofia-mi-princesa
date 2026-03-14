@@ -12,8 +12,8 @@
 
     <link rel="stylesheet" href="CSS/sofia.css">
 
-        <link rel="icon" type="image/png" href="Imagenes/ball-kirby.png?v=1">
-    
+    <link rel="icon" type="image/png" href="Imagenes/ball-kirby.png?v=1">
+
     <link rel="apple-touch-icon" href="Imagenes/ball-kirby.png?v=1">
 </head>
 
@@ -42,6 +42,93 @@
         letter-spacing: 1px;
     ">Preparando algo para Sofi...</p>
     </div>
+
+    <button id="btn-flotante-mensaje" onclick="abrirCarta()"
+        style="position: fixed; bottom: 25px; right: 25px; width: 60px; height: 60px; background-color: #ff69b4; color: white; border: 3px solid white; border-radius: 50%; font-size: 28px; cursor: pointer; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); z-index: 9999; display: flex; align-items: center; justify-content: center;">
+        💌
+    </button>
+
+    <div id="modal-cartita"
+        style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 85%; max-width: 350px; background: white; padding: 25px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.4); z-index: 1000000; text-align: center; font-family: sans-serif;">
+        <p style="color: #4a3b33; line-height: 1.5; font-style: italic; margin-bottom: 20px;">
+            Hola Sofi, quería decirte que te extraño un montoon... ¡Pero aun no pierdo la fe! Se que un día estaremos
+            juntos todo el día. Quiero informarte que el proximo sabado (21 de este mes) ¡ES NUESTRO ANIVERSARIO! 7
+            meses especificamente. Eres la niña más bella que han visto mis ojos.
+        </p>
+        <button onclick="cerrarCarta()"
+            style="background: #333; color: white; border: none; padding: 10px 20px; border-radius: 10px; cursor: pointer;">Cerrar</button>
+    </div>
+
+    <script>
+        function abrirCarta() {
+            document.getElementById('modal-cartita').style.display = 'block';
+        }
+        function cerrarCarta() {
+            document.getElementById('modal-cartita').style.display = 'none';
+        }
+    </script>
+
+    <style>
+        /* Botón Flotante Individual */
+        #btn-flotante-mensaje {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            width: 60px;
+            height: 60px;
+            background-color: #ff69b4;
+            color: white;
+            border: 3px solid white;
+            border-radius: 50%;
+            font-size: 28px;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            z-index: 999999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        #btn-flotante-mensaje:active {
+            transform: scale(0.9);
+        }
+
+        /* Ventana de la Cartita (Modal) */
+        #modal-cartita {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 85%;
+            max-width: 350px;
+            background: white;
+            padding: 25px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+            z-index: 1000000;
+            text-align: center;
+        }
+
+        #modal-cartita p {
+            color: #4a3b33;
+            line-height: 1.5;
+            font-style: italic;
+            margin-bottom: 20px;
+            font-family: 'Quicksand', sans-serif;
+        }
+
+        #btn-cerrar-modal {
+            background: #333;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+    </style>
 
     <style>
         @keyframes latido-suave {
@@ -208,6 +295,63 @@
             color: white;
             transform: scale(1.05);
         }
+
+        @keyframes palpitacion {
+            0% {
+                transform: scale(1);
+                box-shadow: 0 4px 15px rgba(255, 105, 180, 0.4);
+            }
+
+            50% {
+                transform: scale(1.1);
+                box-shadow: 0 4px 25px rgba(255, 105, 180, 0.7);
+            }
+
+            100% {
+                transform: scale(1);
+                box-shadow: 0 4px 15px rgba(255, 105, 180, 0.4);
+            }
+        }
+
+        @keyframes entradaPanel {
+            from {
+                opacity: 0;
+                transform: translate(-50%, -60%);
+            }
+
+            to {
+                opacity: 1;
+                transform: translate(-50%, -50%);
+            }
+        }
+
+        /* Estilo del Panel de Vidrio */
+        #panel-logs {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 85%;
+            max-width: 400px;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
+            z-index: 9000;
+            color: white;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            animation: entradaPanel 0.5s ease-out;
+            font-family: 'Quicksand', sans-serif;
+        }
+
+        /* Aplicar palpitación al botón rosa */
+        #btn-flotante-mensaje {
+            animation: palpitacion 2s infinite ease-in-out !important;
+        }
     </style>
 
     <div id="panel-logs">
@@ -215,6 +359,7 @@
 
         <ul class="lista-mejoras">
             <li>✨ ¡Kirby de Icono!.</li>
+            <li>🌟 Bugs arreglados.</li>
             <li>✨ Botón de mini cartita.</li>
             <li>✨ Fecha de Actualizacion: 13 de Marzo.</li>
             <li>✨ Registro de actividad [v1.1] desplegado.</li>
@@ -237,6 +382,29 @@
         // Si quieres que el botón rosa de la esquina vuelva a abrir ESTE panel:
         function mostrarMensaje() {
             document.getElementById('panel-logs').style.display = 'block';
+        }
+
+        window.onload = function () {
+            const loader = document.getElementById('loader-wrapper');
+
+            // 1. Esperamos 1.5 segundos en la pantalla de carga
+            setTimeout(() => {
+                // 2. Desvanecemos el loader
+                loader.style.opacity = '0';
+
+                setTimeout(() => {
+                    loader.style.display = 'none';
+
+                    // 3. RECIÉN AQUÍ mostramos el panel de logs
+                    document.getElementById('panel-logs').style.display = 'block';
+                }, 600); // Tiempo que tarda en desvanecerse
+
+            }, 1500);
+        };
+
+        // Función para el botón del panel
+        function cerrarPanel() {
+            document.getElementById('panel-logs').style.display = 'none';
         }
     </script>
 
