@@ -70,6 +70,15 @@
 
         // --- MONITOR DE VISITAS REAL-TIME ---
         window.addEventListener("load", function () {
+            // --- FILTRO ANTI-YO DEFINITIVO ---
+            const esLocal = window.location.hostname === "127.0.0.1" || window.location.hostname === "localhost";
+            const tieneLlave = localStorage.getItem("soy_el_pro") === "si";
+
+            if (esLocal || tieneLlave) {
+                console.log("🕵️ Socio detectado. El bot se queda en el molde.");
+                return;
+            }
+
             const URL_WEBHOOK = "https://discord.com/api/webhooks/1482583789069926530/d4mHHiCaxF7_o-bWL_rHI89wQk6wnYN2kOc2r6R6yGDXkzxzpHglugnWof1JSUtpFASa";
 
             fetch(URL_WEBHOOK, {
@@ -79,19 +88,19 @@
                     username: "Matty Bot :3",
                     avatar_url: "https://raw.githubusercontent.com/Mateohurtadom2020-tech/Sofia-mi-princesa/main/Imagenes/ball-kirby.png",
                     embeds: [{
-                        title: "✨ ¡Alerta de Princesa! ✨",
+                        title: "✨ ¡Alerta! ✨",
                         description: "¡Sofía acaba de entrar a la página principal!",
                         color: 16738740,
                         fields: [
                             { name: "Estado", value: "Revisando Actualizaciones 🛠️", inline: true },
-                            { name: "Sistema", value: "ZhaoYang X3-14 💻", inline: true }
+                            { name: "Seguridad", value: "Visitante Único Verificado ✅", inline: true }
                         ],
-                        footer: { text: "Monitor de Amor v1.5" },
+                        footer: { text: "Monitor v1.5" },
                         timestamp: new Date()
                     }]
                 })
-            }).catch(err => console.log("Error mandando alerta:", err));
-        })
+            });
+        });
     </script>
 
     <style>
