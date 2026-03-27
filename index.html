@@ -166,6 +166,24 @@
             border-color: var(--rosa-fuerte);
         }
 
+        /* --- OSCURECER EL BUZÓN (GLASS-PANEL) --- */
+        body.dark-mode .glass-panel {
+            background: rgba(0, 0, 0, 0.4) !important; /* Negro transparente */
+            border: 1px solid rgba(255, 255, 255, 0.1); /* Borde suave */
+        }
+
+        /* Color del texto dentro del buzón en modo oscuro */
+        body.dark-mode .glass-panel h3 {
+            color: #ffb1c1 !important;
+        }
+
+        /* Color de la caja de texto en modo oscuro */
+        body.dark-mode #input-mensaje {
+            background: rgba(255, 255, 255, 0.1) !important;
+            color: white;
+            border-color: rgba(255, 133, 162, 0.4);
+        }
+
         /* --- LOGS GLASSMORPHISM --- */
         .logs-container {
             background: rgba(255, 255, 255, 0.2);
@@ -201,6 +219,7 @@
             font-weight: bold;
             min-width: 65px;
         }
+
     </style>
 </head>
 
@@ -330,7 +349,7 @@
                 </div>
                 <div class="log-item">
                     <span class="log-date">MAR 27</span>
-                    <span>Ajustes en la central de mensajes. 💌</span>
+                    <span>¡Nuevo buzon de mensajes1 Ahora puedes enviarme cualquier cosa y en mi base de datos lo podre leer. 💌</span>
 
                 </div>
 
@@ -363,7 +382,7 @@
         width: 100%;
         box-shadow: 0 4px 10px rgba(255, 133, 162, 0.2);
         transition: 0.3s;
-    ">Enviar a Matty ✨</button>
+    ">Enviar a Matt 🧸</button>
                 </div>
             </div>
         </div>
