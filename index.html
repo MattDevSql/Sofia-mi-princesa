@@ -1,17 +1,23 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Para mi niña 💓</title>
-    
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
-    
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Quicksand:wght@400;600&display=swap"
+        rel="stylesheet">
+
     <style>
         :root {
-            --rosa-principal: #FFC0CB; /* Rosa chicle suave */
-            --rosa-fuerte: #FF85A2;    /* Para acentos y botones */
-            --rosa-fondo: #FFF0F3;     /* Fondo casi blanco rosado */
+            --rosa-principal: #FFC0CB;
+            /* Rosa chicle suave */
+            --rosa-fuerte: #FF85A2;
+            /* Para acentos y botones */
+            --rosa-fondo: #FFF0F3;
+            /* Fondo casi blanco rosado */
             --vidrio: rgba(255, 255, 255, 0.6);
         }
 
@@ -77,7 +83,7 @@
             flex-direction: column;
             align-items: center;
             gap: 8px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
         }
 
         .btn-seccion:active {
@@ -85,8 +91,16 @@
             background: var(--rosa-principal);
         }
 
-        .icon { font-size: 1.4rem; }
-        .label { font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; }
+        .icon {
+            font-size: 1.4rem;
+        }
+
+        .label {
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
 
         /* Botón de la Galaxia (Destacado) */
         .btn-galaxy {
@@ -97,8 +111,15 @@
         }
 
         @keyframes fadeIn {
-            from { opacity: 0; transform: scale(0.9); }
-            to { opacity: 1; transform: scale(1); }
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
         }
 
         /* Burbuja de aviso flotante */
@@ -111,15 +132,80 @@
             border-radius: 50px;
             font-weight: bold;
             font-size: 0.8rem;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
             border: 1px solid var(--rosa-principal);
             display: none;
         }
+
+        /* --- ESTILOS MODO OSCURO --- */
+        body.dark-mode {
+            background: linear-gradient(135deg, #1a1a2e 0%, #2d1b2d 100%);
+            color: #ffd1dc;
+        }
+
+        body.dark-mode .dashboard {
+            background: rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(255, 133, 162, 0.3);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
+        }
+
+        body.dark-mode .btn-seccion {
+            background: rgba(255, 255, 255, 0.05);
+            color: #ffb3c1;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        body.dark-mode .dedicatoria {
+            color: #ccadb3;
+        }
+
+        body.dark-mode #matty-alert {
+            background: #2d1b2d;
+            color: var(--rosa-fuerte);
+            border-color: var(--rosa-fuerte);
+        }
+
+        /* --- LOGS GLASSMORPHISM --- */
+        .logs-container {
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-radius: 25px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            padding: 20px;
+            margin-top: 25px;
+            text-align: left;
+            box-shadow: 0 8px 32px rgba(255, 182, 193, 0.2);
+        }
+
+        .log-item {
+            font-size: 0.8rem;
+            margin-bottom: 8px;
+            display: flex;
+            gap: 10px;
+            color: #5d5d5d;
+        }
+
+        body.dark-mode .logs-container {
+            background: rgba(0, 0, 0, 0.3);
+            border-color: rgba(255, 255, 255, 0.1);
+        }
+
+        body.dark-mode .log-item {
+            color: #ccadb3;
+        }
+
+        .log-date {
+            color: var(--rosa-fuerte);
+            font-weight: bold;
+            min-width: 65px;
+        }
     </style>
 </head>
+
 <body>
     <script>
-            // --- MONITOR DE VISITAS REAL-TIME ---
+        // --- MONITOR DE VISITAS REAL-TIME ---
         window.addEventListener("load", function () {
             // --- FILTRO ANTI-YO DEFINITIVO ---
             const esLocal = window.location.hostname === "127.0.0.1" || window.location.hostname === "localhost";
@@ -157,11 +243,47 @@
 
     <div id="matty-alert">🌸 ¡Hola mi niña! Qué lindo verte por aquí...</div>
 
+    <div onclick="toggleDarkMode()" style="
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: var(--vidrio);
+    backdrop-filter: blur(5px);
+    padding: 10px;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 10000;
+    border: 1px solid white;
+    font-size: 1.2rem;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+">
+        <span id="dark-icon">🌙</span>
+    </div>
+
     <div class="dashboard">
         <h1>Para Sofía</h1>
-        
+
         <div class="dedicatoria">
-            "Te extraño muchísimo... Cada vez que veo que entras a la página me pongo feliz. Sos lo más importante para mí y siempre te voy a cuidar, aunque sea de cerquita. Te quiero ❤️"
+            "Te extraño muchísimo... Cada vez que veo que entras a la página me pongo feliz. Sos lo más importante para
+            mí y siempre te voy a cuidar, aunque sea de cerquita. Te quiero ❤️"
+        </div>
+
+        <div id="estado-matty" style="
+    background: white;
+    border-radius: 50px;
+    padding: 8px 15px;
+    margin: 0 auto 20px auto;
+    width: fit-content;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 4px 10px rgba(255, 182, 193, 0.2);
+    border: 1px solid var(--rosa-principal);
+">
+            <span id="emoji-estado" style="font-size: 1.2rem;">✨</span>
+            <span id="texto-estado" style="font-size: 0.85rem; font-weight: 600; color: #6a6a6a;">
+                Cargando mi estado...
+            </span>
         </div>
 
         <div class="menu-grid">
@@ -190,13 +312,34 @@
                 <span class="label">Mini Juego</span>
             </a>
         </div>
+        <div class="logs-container">
+            <h3
+                style="font-size: 0.9rem; margin: 0 0 15px 0; color: var(--rosa-fuerte); text-transform: uppercase; letter-spacing: 1px;">
+                ✨ Actualizaciones
+            </h3>
+
+            <div id="lista-logs">
+                <div class="log-item">
+                    <span class="log-date">MAR 27</span>
+                    <span>Se implementó el "Modo Oscuro" para cuidar tu vista. 🌙</span>
+                </div>
+                <div class="log-item">
+                    <span class="log-date">MAR 27</span>
+                    <span>¡Nueva interfaz rosa y mensajes dinámicos! 🌸</span>
+                </div>
+                <div class="log-item">
+                    <span class="log-date">MAR 27</span>
+                    <span>Ajustes en la central de mensajes. 💌</span>
+                </div>
+            </div>
+        </div>
     </div>
 
     <script>
         const urlParams = new URLSearchParams(window.location.search);
         const soyAdmin = urlParams.get('admin') === 'true';
 
-        window.onload = function() {
+        window.onload = function () {
             if (!soyAdmin) {
                 document.getElementById('matty-alert').style.display = 'block';
                 // Aquí va tu fetch del Webhook para que te avise
@@ -208,6 +351,53 @@
             // Pega aquí tu código de fetch que ya tenías
             console.log("Avisando al Matty Bot...");
         }
+
+        function actualizarEstado() {
+            const ahora = new Date();
+            const hora = ahora.getHours();
+            const texto = document.getElementById('texto-estado');
+            const emoji = document.getElementById('emoji-estado');
+
+            if (hora >= 6 && hora < 12) {
+                texto.innerText = "¡Buenos días, princesa! Recuerda que te amo mucho.";
+                emoji.innerText = "☀️";
+            } else if (hora >= 12 && hora < 18) {
+                texto.innerText = "En la escuela, pero mi mente está con vos.";
+                emoji.innerText = "🎒";
+            } else if (hora >= 18 && hora < 22) {
+                texto.innerText = "Relajado, extrañándote un poquito más.";
+                emoji.innerText = "🌅";
+            } else {
+                texto.innerText = "Noche de código y pensando en mi niña...";
+                emoji.innerText = "🌙";
+            }
+        }
+
+        // Ejecutar al cargar
+        actualizarEstado();
+
+        function toggleDarkMode() {
+            const body = document.body;
+            const icon = document.getElementById('dark-icon');
+
+            body.classList.toggle('dark-mode');
+
+            if (body.classList.contains('dark-mode')) {
+                icon.innerText = "☀️";
+                localStorage.setItem("tema", "oscuro");
+            } else {
+                icon.innerText = "🌙";
+                localStorage.setItem("tema", "claro");
+            }
+        }
+
+        // Para que recuerde el tema si ella recarga la página
+        if (localStorage.getItem("tema") === "oscuro") {
+            document.body.classList.add('dark-mode');
+            document.getElementById('dark-icon').innerText = "☀️";
+        }
+
     </script>
 </body>
+
 </html>
