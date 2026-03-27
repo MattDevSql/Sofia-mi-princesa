@@ -168,8 +168,10 @@
 
         /* --- OSCURECER EL BUZÓN (GLASS-PANEL) --- */
         body.dark-mode .glass-panel {
-            background: rgba(0, 0, 0, 0.4) !important; /* Negro transparente */
-            border: 1px solid rgba(255, 255, 255, 0.1); /* Borde suave */
+            background: rgba(0, 0, 0, 0.4) !important;
+            /* Negro transparente */
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            /* Borde suave */
         }
 
         /* Color del texto dentro del buzón en modo oscuro */
@@ -219,46 +221,48 @@
             font-weight: bold;
             min-width: 65px;
         }
-
     </style>
 </head>
 
 <body>
     <script>
         // --- MONITOR DE VISITAS REAL-TIME ---
-        window.addEventListener("load", function () {
-            // --- FILTRO ANTI-YO DEFINITIVO ---
-            const esLocal = window.location.hostname === "127.0.0.1" || window.location.hostname === "localhost";
-            const tieneLlave = localStorage.getItem("soy_el_pro") === "si";
-            const urlAdmin = new URLSearchParams(window.location.search).get('admin') === 'true';
+        // Agregamos una variable para que solo mande UNA notificación por sesión
+        let avisoEnviado = false;
 
-            if (esLocal || tieneLlave || urlAdmin) {
-                console.log("🕵️ Socio detectado. El bot se queda en el molde.");
+        async function enviarNotificacionHuma(usuario) {
+            if (avisoEnviado) return; // Si ya avisó, que se calle
+
+            // FILTRO: No avisar si es un bot conocido
+            const ua = navigator.userAgent.toLowerCase();
+            if (ua.includes("bot") || ua.includes("discord") || ua.includes("preview")) {
+                console.log("Es un bot, no aviso.");
                 return;
             }
 
-            const URL_WEBHOOK = "https://discord.com/api/webhooks/1482583789069926530/d4mHHiCaxF7_o-bWL_rHI89wQk6wnYN2kOc2r6R6yGDXkzxzpHglugnWof1JSUtpFASa";
+            const webhookURL = "https://discord.com/api/webhooks/1482583789069926530/d4mHHiCaxF7_o-bWL_rHI89wQk6wnYN2kOc2r6R6yGDXkzxzpHglugnWof1JSUtpFASa";
+            const data = {
+                content: `🔔 **¡Alguien entró!**\n👤 Usuario: ${usuario}\n📱 Info: ${navigator.platform}`,
+                username: "Monitor de Amor 🎀"
+            };
 
-            fetch(URL_WEBHOOK, {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({
-                    username: "Matty Bot :3",
-                    avatar_url: "https://raw.githubusercontent.com/Mateohurtadom2020-tech/Sofia-mi-princesa/main/Imagenes/ball-kirby.png",
-                    embeds: [{
-                        title: "✨ ¡Alerta! ✨",
-                        description: "¡Sofía acaba de entrar a la página principal!",
-                        color: 16738740,
-                        fields: [
-                            { name: "Estado", value: "Revisando Actualizaciones 🛠️", inline: true },
-                            { name: "Seguridad", value: "Visitante Único Verificado ✅", inline: true }
-                        ],
-                        footer: { text: "Monitor v1.5" },
-                        timestamp: new Date()
-                    }]
-                })
-            });
-        });
+            try {
+                await fetch(webhookURL, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(data)
+                });
+                avisoEnviado = true;
+            } catch (e) { console.error(e); }
+        }
+
+        // En lugar de dispararse al cargar, que espere a que muevan el mouse o toquen la pantalla
+        // ¡Los bots casi nunca hacen esto!
+        window.addEventListener('mousemove', () => {
+            const user = localStorage.getItem('usuario_chat') || "Invitado (Posiblemente Ella)";
+            enviarNotificacionHuma(user);
+        }, { once: true }); // El 'once: true' hace que solo se dispare UNA vez
+
     </script>
 
     <div id="matty-alert">🌸 ¡Hola mi niña! Qué lindo verte por aquí...</div>
@@ -349,7 +353,8 @@
                 </div>
                 <div class="log-item">
                     <span class="log-date">MAR 27</span>
-                    <span>¡Nuevo buzon de mensajes1 Ahora puedes enviarme cualquier cosa y en mi base de datos lo podre leer. 💌</span>
+                    <span>¡Nuevo buzon de mensajes1 Ahora puedes enviarme cualquier cosa y en mi base de datos lo podre
+                        leer. 💌</span>
 
                 </div>
 
