@@ -20,6 +20,45 @@
 
 <body>
 
+    <div id="aviso-matty" style="
+    position: fixed;
+    top: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.85); /* Fondo negro transparente */
+    backdrop-filter: blur(5px); /* Desenfoque pro */
+    color: #FFDE7A; /* Amarillo suave */
+    padding: 12px 20px;
+    border-radius: 50px; /* Bordes redondeados */
+    border: 2px solid #FFE55C; /* Borde amarillo brillante */
+    box-shadow: 0 0 15px rgba(255, 229, 92, 0.6); /* Brillo */
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    text-align: center;
+    z-index: 9999; /* Arriba de TODO */
+    pointer-events: none; /* No estorba los clics */
+    animation: fadeInSlideDown 0.8s ease-out; /* Animación de entrada */
+">
+        👀 <span style="color: #fff;">¡Sofía!</span> HOLA HOLAAA COMO ESTAAAS :3<br>
+        <span style="font-size: 0.8rem; font-weight: 400; color: #ccc;">Ahorita mismo te estoy activando la galaxia 3D ¡Te lo hice con puro esfuerzo!.
+            No cierres.</span>
+    </div>
+
+    <style>
+        @keyframes fadeInSlideDown {
+            from {
+                opacity: 0;
+                transform: translateX(-50%) translateY(-20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(-50%) translateY(0);
+            }
+        }
+    </style>
+
     <div id="loader-wrapper" style="
     position: fixed;
     top: 0;
@@ -451,7 +490,7 @@
                 <summary>✨ Fecha de Actualización: 26 de Marzo a las 21:58 PM <span class="flechita">⌄</span></summary>
                 <p class="desc-interna">Mini actualizacion, pronto añadire mas cosas. Perdon si no he estado
                     actualizando la pagina.
-                    </p>
+                </p>
             </details>
 
             <details class="item-log-interactivo">
